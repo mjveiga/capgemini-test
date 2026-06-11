@@ -1,4 +1,4 @@
-package com.capgemini.test.code.clients;
+package com.capgemini.test.code.clients.infrastructure.adapter.out.provider.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CheckDniResponse {
+public class SmsNotificationRequest {
+  private String phone;
   private String message;
 }
