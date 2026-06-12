@@ -40,17 +40,6 @@ public class UserManagementHandler implements UserManagementUseCase {
   @Override
   public UserResponseDto getHandle(Integer id) {
     User user = userManagementPort.getUser(id);
-
-    if (user.getRoom() != null) {
-      return this.userManagementMapper.toUserResponseDto(user.getName(), user.getEmail(), user.getPhone(), user.getRol(), user.getDni(), 0);
-    }
     return this.userManagementMapper.toUserResponseDto(user.getName(), user.getEmail(), user.getPhone(), user.getRol(), user.getDni(), user.getRoom().getId());
-
-
-//    Integer roomId = null;
-//    if (user.getRoom() != null) {
-//      roomId = user.getRoom().getId();
-//    }
-//    return this.userManagementMapper.toUserResponseDto(user.getName(), user.getEmail(), user.getPhone(), user.getRol(), user.getDni(), roomId);
   }
 }
