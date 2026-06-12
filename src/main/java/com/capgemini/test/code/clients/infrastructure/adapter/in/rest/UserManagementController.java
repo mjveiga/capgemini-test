@@ -25,7 +25,7 @@ public class UserManagementController {
 
   private final UserManagementUseCase userManagementUseCase;
 
-  @PostMapping(value= "/create", produces= MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value= "/create", consumes= MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<IdUserResponseDto> createUser(@RequestBody @Valid UserCreateRequestDto request){
     IdUserResponseDto response = userManagementUseCase.createHandle(request.name, request.email, request.phone, request.rol.name(), request.dni);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
